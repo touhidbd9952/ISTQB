@@ -1,0 +1,439 @@
+//////Data type and memory size//////////////
+Data Type 	Size 	    Description
+-----------------------------------------------------------------
+byte 	      1 byte 	Stores whole numbers from -128 to 127
+short 	      2 bytes 	Stores whole numbers from -32,768 to 32,767
+int 	      4 bytes 	Stores whole numbers from -2,147,483,648 to 2,147,483,647
+long 	      8 bytes 	Stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+float 	      4 bytes 	Stores fractional numbers. Sufficient for storing 6 to 7 decimal digits
+double 	      8 bytes 	Stores fractional numbers. Sufficient for storing 15 decimal digits
+boolean       1 bit     Stores true or false values
+char 	      2 bytes 	Stores a single character/letter or ASCII values
+
+//////////////////Variables//////////////////
+-----------------------------------------------------------------
+int myNum = 5;               // Integer (whole number)
+float myFloatNum = 5.99f;    // Floating point number
+char myLetter = 'D';         // Character
+boolean myBool = true;       // Boolean
+String myText = "Hello";     // String
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+int myInt = 9;
+double myDouble = myInt; // Automatic casting: int to double
+
+double myDouble = 9.78d;
+int myInt = (int) myDouble; // Manual casting: double to int
+
+System.out.println(myDouble);   // Outputs 9.78
+System.out.println(myInt);      // Outputs 9
+
+//////////////////Arrays//////////////////
+-----------------------------------------------------------------
+Single Dimention Array
+----------------------
+int a[] = new int[2];
+a[0] = 2;
+a[1] = 3;
+a[2] = 4;
+System.out.println(a[1]);    // 4
+
+int a[] ={2,3,4};            //single line array declaration
+System.out.println(a[1]);    // 4
+
+
+Multi Dimention Array
+----------------------
+int  a[][]  =  new  int[2][3];
+a[0][0] = 2;
+a[0][1] = 3;
+a[0][2] = 4;
+a[1][0] = 6;
+a[1][1] = 8;
+a[1][2] = 9;
+System.out.println(a[1][0]);    // 6
+
+int  a[][]  =  {{2,3,4},{6,8,9}};  //single line array declaration
+System.out.println(a[1][0]);    // 6
+Arrays.sort(a);
+int max = Arrays.stream(a).max().getAsInt();  //9
+int min = Arrays.stream(a).min().getAsInt();  //2
+
+Example:
+--------
+String[] cars;
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+int[] myNum = {10, 20, 30, 40};
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+System.out.println(cars[0]);
+
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+cars[0] = "Opel";
+System.out.println(cars[0]);
+System.out.println(cars.length);
+
+//////////////////Arraylist, HashSet//////////////////
+-----------------------------------------------------------------
+1. accept duplicate values
+2. indexing
+3. order follows/has data sequence 
+
+import java.util.ArrayList;
+
+public class Main {
+  public static void main(String[] args) {
+    ArrayList<String> cars = new ArrayList<String>();
+    cars.add("Volvo");
+    cars.add("BMW");
+    cars.add("Ford");
+    cars.add("Mazda");
+    System.out.println(cars);
+  }
+}
+
+/////Some use of Arraylist//////////////
+ArrayList<String>  alist =  new  ArrayList<String>();
+alist.add("java");
+alist.add("c");
+System.out.println(alist);
+alist.add(0, "c");
+alist.add(1, "java");
+System.out.println(alist);
+alist.remove("c");
+if(alist.contains("java")){....}
+int a = alist.indexOf("java");
+if(alist.isEmpty()){....}
+int listsize = alist.size();
+
+
+////HashSet  List////////////////////////////////////
+1. Does not accept duplicate values
+2. No indexing
+3. No order follows/No data sequence 
+
+HashSet<String>  hs  =  new  HashSet<String>();
+hs.add("USA");
+hs.add("UK");
+hs.add("UK");
+System.out.println(hs);     //(USA, UK)
+hs.remove("UK");
+if(hs.isEmpty()){....}
+int a = hs.size();
+
+Iterator<String>  i  =  hs.iterator();
+while(i.hasNext())
+{
+    System.out.println(i.next());
+}
+
+////HashMap  List////////////////////////////////////
+HashMap is a arraylist that put/add data as key value pare.
+here key can be integer or string like :  
+
+HashMap<String,String> hm  =  new HashMap<String,String>(); 
+hm.put("name","Karim");
+hm.put("address","123, Dhaka");
+
+For Example:
+----------------
+HashMap<Integer,String> hm  =  new HashMap<Integer,String>(); 
+hm.put(0, "hello"); 
+hm.put(1, "Gudbye"); 
+hm.put(2, "morning"); 
+hm.put(3, "evening"); 
+System.out.println(hm.get(2)); 
+hm.remove(2); 
+System.out.println(hm.get(2)); 
+Set sn= hm.entrySet();    // convert to Set
+Iterator  it  =  sn.iterator(); 
+ 
+while(it.hasNext()) 
+{ 
+    Map.Entry mp=(Map.Entry)it.next();   //seperate key value
+    // System.out.println(mp.getKey()); 
+    System.out.println(mp.getValue()); 
+ }
+
+
+//////////////////For loop//////////////////
+-----------------------------------------------------------------
+for (int i = 0; i < 5; i++) {
+  System.out.println(i);
+}
+
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+for (String i : cars) {
+  System.out.println(i);
+}
+
+for (int i = 0; i < 10; i++) {
+  if (i == 4) {
+    break;
+  }
+  System.out.println(i);
+}
+
+for (int i = 0; i < 10; i++) {
+  if (i == 4) {
+    continue;
+  }
+  System.out.println(i);
+}
+
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+for (int i = 0; i < cars.length; i++) {
+  System.out.println(cars[i]);
+}
+
+
+
+//////////////////if else//////////////////
+-----------------------------------------------------------------
+if (20 > 18) {
+  System.out.println("20 is greater than 18");
+}
+
+int time = 20;
+if (time < 18) {
+  System.out.println("Good day.");
+} else {
+  System.out.println("Good evening.");
+}
+
+String result = (time < 18) ? "Good day." : "Good evening.";
+
+//////////////////Methods//////////////////
+-----------------------------------------------------------------
+public class Main {
+  static void myMethod() {
+    System.out.println("Hello World!");
+  }
+public void speed(int maxSpeed) {
+    System.out.println("Max speed is: " + maxSpeed);
+  }
+}
+
+//////////////////objects//////////////////
+-----------------------------------------------------------------
+public class Main {
+  int x = 5;
+
+  public static void main(String[] args) {
+    Main myObj = new Main();
+    System.out.println(myObj.x);
+  }
+}
+
+//////////////////constructor//////////////////
+-----------------------------------------------------------------
+public class Main {
+  int x;
+
+  public Main(int y) {
+    x = y;
+  }
+
+  public static void main(String[] args) {
+    Main myObj = new Main(5);
+    System.out.println(myObj.x);
+  }
+}
+
+//////////////////interface//////////////////
+-----------------------------------------------------------------
+// Interface
+interface Animal {
+  public void animalSound(); // interface method (does not have a body)
+  public void sleep(); // interface method (does not have a body)
+}
+
+// Pig is a class "implements" the Animal interface
+class Pig implements Animal {
+  public void animalSound() {
+    // The body of animalSound() is provided here
+    System.out.println("The pig says: wee wee");
+  }
+  public void sleep() {
+    // The body of sleep() is provided here
+    System.out.println("Zzz");
+  }
+}
+
+//////////////////Abstract class//////////////////
+-----------------------------------------------------------------
+Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).
+An abstract class can have both abstract and regular methods.
+
+// Abstract class
+abstract class Animal {
+  // Abstract method (does not have a body)
+  public abstract void animalSound();
+  // Regular method
+  public void sleep() {
+    System.out.println("Zzz");
+  }
+}
+
+// Subclass (inherit from Animal)
+class Pig extends Animal {
+  public void animalSound() {
+    // The body of animalSound() is provided here
+    System.out.println("The pig says: wee wee");
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Pig myPig = new Pig(); // Create a Pig object
+    myPig.animalSound();
+    myPig.sleep();
+  }
+}
+
+
+//////////////////Inheritances//////////////////
+-----------------------------------------------------------------
+public class A
+{
+   public int i =10;
+}
+
+public class B extends A
+{
+   public int i =20;
+}
+
+public class ABC
+{
+   public static void main(String[] args)
+   {
+       A   a  =  new B();
+       System.out.println(a.i);   //10
+    }
+}
+
+
+
+//////////////////Method Overriding//////////////////
+-----------------------------------------------------------------
+In a class, methods can have same name but must be parameter different
+
+public class A
+{
+   public int i =10;
+   public void add(int a)
+   {
+      System.out.println(a);
+   }
+   public void add(int a, int b)
+   {
+      System.out.println(a+b);
+   }
+   public static void main(String[] args)
+   {
+      A aobj = new A();
+      System.out.println(aobj.add(1));  //1
+      System.out.println(aobj.add(1,2));  //3
+   }
+}
+
+//////////////////Method Overriding//////////////////
+-----------------------------------------------------------------
+public class A
+{
+   public int i =10;
+   public void color()
+   {
+      System.out.println("red");
+   }
+}
+
+public class B extends A
+{
+   public int i =20;
+   public void color()
+   {
+      System.out.println("green");
+   }
+}
+
+public class ABC
+{
+   public static void main(String[] args)
+   {
+       B   b  =  new B();
+       System.out.println(b.color());   //result==> green
+       //if we commented-up color() method of B class then result will be "red"
+    }
+}
+
+
+
+//////////////////Date Time in Java//////////////////
+-----------------------------------------------------------------
+for more help: https://www.tutorialspoint.com/java/java_date_time.htm
+
+
+
+import  java.text.SimpleDateFormat;
+import  java.util.Date;
+
+public class dateDemo
+{
+     public static void main(String[] args)
+     {
+           Date  d  =  new  Date();
+           SimpleDateFormat  sdf  =  new  SimpleDateFormat("M/d/yyyy");
+           System.out.println(sdf.format(d));     //3/24/2024
+           System.out.println(d.toString());
+
+           //or your can use Calendar Class to get date time
+           Calendar  cal  =  Calendar.getInstance();
+           SimpleDateFormat  sdf  =  new  SimpleDateFormat("M/d/yyyy");
+           System.out.println(sdf.format(cal.getTime()));     //3/24/2024
+           System.out.println(cal.get(Calendar.Day_OF_MONTH)); 
+     }
+
+}
+
+
+
+//////////////////Access Modifier//////////////////
+-----------------------------------------------------------------
+
+default:     you can access method anywhere only in package
+public:       you will have access across all the package
+private:     you cannot access outside the class
+protected: you can access only in sub class 
+
+//// default variable, default method
+int a = 5;    
+void getData()
+{
+
+}
+
+//// public variable, public method
+public int a = 5;    
+public void getData()
+{
+
+}
+
+//// private variable, private method
+private int a = 5;    
+private void getData()
+{
+
+}
+
+//// protected variable, protected method
+protected int a = 5;    
+protected void getData()
+
+
+
+
+
+
