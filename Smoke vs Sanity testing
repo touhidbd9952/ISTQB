@@ -1,0 +1,9 @@
+Smoke test is done to make sure that 
+the critical functionalities of the 
+program are working fine,
+
+Sanity testing is done to check that 
+newly added functionalities, bugs, etc., 
+have been fixed. The software build may 
+be either stable or unstable during 
+smoke testing.
